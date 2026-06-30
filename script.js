@@ -164,12 +164,6 @@ faqItems.forEach((item) => {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (button.hasAttribute("data-jump-utility")) {
-      filterButtons.forEach((item) => item.classList.toggle("active", item === button));
-      playUtilityGuide();
-      return;
-    }
-
     activeFilter = button.dataset.filter;
     filterButtons.forEach((item) => item.classList.toggle("active", item === button));
     updateFaq();
