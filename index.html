@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Resident Tenancy Agreement & Bond Guide</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f6b4a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='white'%3EL%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260630-utility" />
   </head>
   <body>
     <header class="site-header">
@@ -17,6 +17,7 @@
         <a href="#steps">Next Steps</a>
         <a href="#bond">Bond</a>
         <a href="#rent">Rent</a>
+        <a href="#utilities">Utilities</a>
         <a href="#keys">Keys</a>
         <a href="#move-in-support">After Move-In</a>
         <a href="#faq">FAQ</a>
@@ -37,13 +38,14 @@
           </p>
           <form class="search-shell" role="search">
             <label class="sr-only" for="site-search">Search resident questions</label>
-            <input id="site-search" type="search" placeholder="Search: tenancy agreement, bond, Sorted app, keys..." autocomplete="off" />
+            <input id="site-search" type="search" placeholder="Try: sign agreement, bond, payment methods, utilities, keys..." autocomplete="off" />
             <button type="submit">Search</button>
           </form>
           <div class="quick-links" aria-label="Popular topics">
             <button type="button" data-query="tenancy agreement email" data-play-email>Find Agreement</button>
             <button type="button" data-query="bond">Pay Bond</button>
             <button type="button" data-query="sorted app" data-play-rent>Sorted App</button>
+            <button type="button" data-query="utilities" data-play-utility>Utilities</button>
             <button type="button" data-query="key collection" data-play-keys>Keys</button>
           </div>
         </div>
@@ -57,7 +59,7 @@
             <small>Look for the email titled "Time to sign your tenancy agreement".</small>
           </span>
         </a>
-        <a class="audience-link" href="#faq" data-query="sign">
+        <a class="audience-link" href="#find-agreement" data-query="sign tenancy agreement" data-play-email>
           <span class="icon">2</span>
           <span>
             <strong>Review & Sign</strong>
@@ -174,7 +176,7 @@
           <button class="replay-button" type="button" data-replay-rent>Replay Rent Setup</button>
         </div>
 
-        <div class="sorted-demo" aria-label="Animated Sorted app rent payment setup guide">
+        <div class="sorted-demo rent-orbit-demo" aria-label="Animated Sorted app rent payment setup guide">
           <div class="download-card sorted-stage stage-download">
             <img class="sorted-app-icon" src="./assets/sorted-logo-publish.jpg" alt="Sorted app logo" />
             <div>
@@ -184,41 +186,77 @@
             <button type="button">Open</button>
           </div>
 
-          <div class="phone-frame sorted-stage stage-wallet">
-            <div class="phone-status">
-              <span>16:19</span>
-              <span>••• Wi-Fi ▰</span>
-            </div>
-            <div class="phone-menu"></div>
-            <h3>Account</h3>
-            <div class="wallet-tabs">
-              <span>Profile</span>
-              <strong>Wallet</strong>
-              <span>Applications</span>
-            </div>
-            <div class="balance-card">
-              <div><strong>$0.00</strong><span>Cash Balance</span></div>
-              <div><strong>$0.00</strong><span>Promo Credits</span></div>
-              <button type="button">Spend</button>
-            </div>
-            <div class="wallet-menu">
-              <div><span>◇</span><strong>Redeem a code</strong><b>›</b></div>
-              <div><span>♙</span><strong>Refer a friend</strong><b>›</b></div>
-              <div><span>□</span><strong>Transactions</strong><b>›</b></div>
-              <div class="payment-methods"><span>▭</span><strong>Payment methods</strong><b>›</b></div>
-            </div>
-            <div class="phone-nav">
-              <span>Home</span>
-              <span>Services</span>
-              <strong>Profile</strong>
-            </div>
+          <div class="rent-screen-stack">
+            <article class="rent-phone-card rent-card-profile sorted-stage stage-profile">
+              <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
+              <div class="screen-menu"></div>
+              <h3>Account</h3>
+              <div class="screen-tabs">
+                <strong>Profile</strong>
+                <span>Wallet</span>
+                <span>Applications</span>
+              </div>
+              <div class="screen-list compact">
+                <div class="screen-row"><span>Profile details</span><b>›</b></div>
+                <div class="screen-row"><span>Documents</span><b>›</b></div>
+                <div class="screen-row"><span>Settings</span><b>›</b></div>
+              </div>
+              <div class="screen-nav"><span>Home</span><span>Services</span><strong>Profile</strong></div>
+              <span class="tap-ring profile-ring">Tap Profile</span>
+            </article>
+
+            <article class="rent-phone-card rent-card-wallet sorted-stage stage-wallet">
+              <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
+              <h3>Account</h3>
+              <div class="screen-tabs">
+                <span>Profile</span>
+                <strong>Wallet</strong>
+                <span>Applications</span>
+              </div>
+              <div class="balance-card">
+                <div><strong>$0.00</strong><span>Cash Balance</span></div>
+                <div><strong>$0.00</strong><span>Promo Credits</span></div>
+                <button type="button">Spend</button>
+              </div>
+              <div class="screen-list">
+                <div class="screen-row"><span>Redeem a code</span><b>›</b></div>
+                <div class="screen-row"><span>Transactions</span><b>›</b></div>
+                <div class="screen-row highlight payment-methods"><span>Payment methods</span><b>›</b></div>
+              </div>
+              <span class="tap-ring wallet-ring">Tap Wallet</span>
+            </article>
+
+            <article class="rent-phone-card rent-card-methods sorted-stage stage-methods">
+              <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
+              <div class="screen-topline">‹</div>
+              <h3>Payment methods</h3>
+              <div class="screen-list plain">
+                <div class="screen-row muted"><span>Saved method</span><b>••••</b></div>
+                <div class="screen-row highlight add-method"><span>+ Add new payment method</span><b>›</b></div>
+              </div>
+              <span class="tap-ring methods-ring">Tap Payment methods</span>
+            </article>
+
+            <article class="rent-phone-card rent-card-add sorted-stage stage-add">
+              <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
+              <div class="screen-topline">‹</div>
+              <h3>Add payment method</h3>
+              <p>Please add your preferred payment method. These details are used when rent is due.</p>
+              <div class="screen-choice">Bank Account</div>
+              <div class="screen-choice">Credit Card</div>
+              <div class="screen-actions">
+                <button type="button" disabled>Next</button>
+                <button type="button">Back</button>
+              </div>
+            </article>
           </div>
 
           <ol class="rent-animation-steps">
             <li class="rent-step-download">Download Sorted</li>
-            <li class="rent-step-wallet">Open Account > Wallet</li>
-            <li class="rent-step-payment">Add your card in Payment methods</li>
-            <li class="rent-step-auto">Rent will be charged automatically on move-in day</li>
+            <li class="rent-step-profile">Tap Profile</li>
+            <li class="rent-step-wallet">Open Wallet</li>
+            <li class="rent-step-payment">Tap Payment methods</li>
+            <li class="rent-step-add">Add your payment method</li>
           </ol>
         </div>
       </section>
@@ -342,6 +380,30 @@
         </div>
       </section>
 
+      <section class="utility-guide-section" id="utilities" aria-labelledby="utility-guide-title">
+        <div class="utility-guide-copy">
+          <p class="eyebrow">Utilities</p>
+          <h2 id="utility-guide-title">How to Connect Utilities</h2>
+          <p>After your agreement is fully signed, use the utility guide to prepare electricity, gas, internet, and any building-specific connection requirements before move-in.</p>
+          <div class="utility-actions">
+            <a class="utility-page-link" href="./utility.html">Open Utility Guide</a>
+            <button class="replay-button" type="button" data-query="utilities" data-play-utility>Show Utility Path</button>
+          </div>
+        </div>
+        <div class="utility-preview" aria-label="Utility guide preview">
+          <div class="utility-orbit">
+            <span>Electricity</span>
+            <span>Gas</span>
+            <span>Internet</span>
+          </div>
+          <div class="utility-card-main">
+            <strong>Utility Guide</strong>
+            <p>Confirm move-in date, prepare your property details, then choose the services you need.</p>
+            <a href="./utility.html">Continue</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="faq">
         <div class="section-heading">
           <p class="eyebrow">Resident Questions</p>
@@ -352,7 +414,7 @@
           <button class="filter" type="button" data-filter="lease">Agreement</button>
           <button class="filter" type="button" data-filter="bond">Bond</button>
           <button class="filter" type="button" data-filter="rent">Rent</button>
-          <button class="filter" type="button" data-filter="utilities">Utilities</button>
+          <button class="filter" type="button" data-jump-utility>Utilities</button>
           <button class="filter" type="button" data-filter="manager">Property Manager</button>
           <button class="filter" type="button" data-filter="confirmation">Confirmation</button>
         </div>
@@ -409,24 +471,6 @@
             </button>
             <div class="faq-answer">
               <p>Download the Sorted app on your mobile device. iPhone users can download it from the App Store, and Android users can download it from Google Play. Log in using the email address associated with your rental application, then go to Account > Wallet > Payment methods and add your bank card. Your rent will be automatically charged on your move-in day.</p>
-            </div>
-          </article>
-          <article class="faq-item" data-category="utilities confirmation" data-keywords="welcome to your new home utilities downloadable links agreement copy myconnect electricity gas internet">
-            <button class="faq-question" type="button">
-              <span>When will I receive my agreement copy and utility information?</span>
-              <span class="chevron">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Once your tenancy agreement has been fully signed, utility connection guidelines and a downloadable copy of your agreement will be provided in the email titled "Welcome to your new home".</p>
-            </div>
-          </article>
-          <article class="faq-item" data-category="utilities" data-keywords="myconnect utilities electricity gas internet connection support">
-            <button class="faq-question" type="button">
-              <span>Who can help me connect utilities?</span>
-              <span class="chevron">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>If a utility guideline is not provided, MyConnect can assist with setting up electricity, gas, and internet after your agreement is fully signed. More information is available at myconnect.com.au/landing/ruiz.</p>
             </div>
           </article>
           <article class="faq-item" data-category="confirmation" data-keywords="key collection keys office address time monday friday marcus clarke canberra">
@@ -512,6 +556,6 @@
     </aside>
     <div class="scrim" data-close-chat></div>
 
-    <script src="./script.js"></script>
+    <script src="./script.js?v=20260630-utility"></script>
   </body>
 </html>

@@ -21,10 +21,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -299,6 +301,7 @@ h2 {
 .split-section,
 .email-guide-section,
 .rent-guide-section,
+.utility-guide-section,
 .keys-guide-section,
 .manager-guide-section,
 .contact-band,
@@ -691,13 +694,16 @@ h2 {
 
 .sorted-demo {
   display: grid;
-  grid-template-columns: minmax(230px, 0.75fr) minmax(270px, 1fr);
   gap: 20px;
   align-items: center;
 }
 
+.rent-orbit-demo {
+  grid-template-columns: minmax(220px, 0.7fr) minmax(360px, 1.3fr);
+}
+
 .download-card,
-.phone-frame {
+.rent-phone-card {
   border: 1px solid var(--line);
   background: var(--white);
   box-shadow: 0 16px 36px rgba(24, 32, 29, 0.1);
@@ -746,14 +752,54 @@ h2 {
   font-weight: 900;
 }
 
-.phone-frame {
+.rent-screen-stack {
   position: relative;
   overflow: hidden;
-  width: min(100%, 360px);
-  min-height: 620px;
+  min-height: 600px;
+  perspective: 1200px;
+}
+
+.rent-phone-card {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  overflow: hidden;
+  width: min(100%, 330px);
+  min-height: 535px;
+  transform: translateX(-50%);
   justify-self: center;
-  border-radius: 28px;
-  padding: 24px 18px 0;
+  border-radius: 26px;
+  padding: 22px 18px 0;
+  transform-origin: center bottom;
+}
+
+.rent-card-profile {
+  z-index: 1;
+  transform: translateX(-68%) rotate(-8deg) scale(0.88);
+}
+
+.rent-card-wallet {
+  z-index: 2;
+  transform: translateX(-50%) rotate(0deg) scale(0.94);
+}
+
+.rent-card-methods {
+  z-index: 3;
+  transform: translateX(-32%) rotate(8deg) scale(0.88);
+}
+
+.rent-card-add {
+  z-index: 4;
+  transform: translateX(-50%) translateY(28px) rotate(0deg) scale(0.82);
+  opacity: 0;
+}
+
+.screen-status,
+.screen-nav {
+  display: flex;
+  justify-content: space-between;
+  color: #111;
+  font-weight: 800;
 }
 
 .phone-status,
@@ -764,39 +810,53 @@ h2 {
   font-weight: 800;
 }
 
-.phone-menu {
+.screen-menu {
   width: 24px;
   height: 18px;
-  margin: 44px 0 36px;
+  margin: 40px 0 34px;
   background: linear-gradient(#111 0 2px, transparent 2px 8px, #111 8px 10px, transparent 10px 16px, #111 16px 18px);
 }
 
-.phone-frame h3 {
-  margin: 0 0 28px;
-  font-size: 2rem;
+.rent-phone-card h3 {
+  margin: 0 0 24px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
 }
 
-.wallet-tabs {
+.rent-phone-card p {
+  color: #777;
+  line-height: 1.5;
+  margin: -12px 0 24px;
+}
+
+.screen-topline {
+  margin: 32px 0 36px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.screen-tabs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   text-align: center;
   color: #a7a7a7;
   border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
 }
 
-.wallet-tabs strong {
+.screen-tabs strong {
   color: var(--ink);
   border-bottom: 3px solid #f15b78;
   padding-bottom: 12px;
 }
 
-.wallet-tabs span {
+.screen-tabs span {
   padding-bottom: 12px;
 }
 
 .balance-card,
-.wallet-menu {
+.screen-list,
+.screen-choice {
   border: 1px solid #e7e7e7;
   border-radius: 8px;
   background: var(--white);
@@ -836,28 +896,91 @@ h2 {
   font-weight: 800;
 }
 
-.wallet-menu {
+.screen-list {
   overflow: hidden;
 }
 
-.wallet-menu div {
+.screen-list.compact {
+  margin-top: 24px;
+}
+
+.screen-list.plain {
+  border: 0;
+}
+
+.screen-row {
   display: grid;
-  grid-template-columns: 32px 1fr 18px;
+  grid-template-columns: 1fr 18px;
   gap: 12px;
   align-items: center;
   min-height: 68px;
   padding: 0 16px;
   border-bottom: 1px solid #ededed;
+  font-weight: 800;
 }
 
-.wallet-menu div:last-child {
+.screen-row:last-child {
   border-bottom: 0;
 }
 
-.wallet-menu span,
-.wallet-menu b {
+.screen-row span,
+.screen-row b {
   color: #222;
-  font-size: 1.2rem;
+}
+
+.screen-row.muted span,
+.screen-row.muted b {
+  color: #8b8b8b;
+}
+
+.screen-row.highlight {
+  position: relative;
+  background: #fff7f9;
+  box-shadow: inset 0 0 0 2px rgba(241, 91, 120, 0.34);
+}
+
+.screen-choice {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 24px;
+  color: #222;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.screen-actions {
+  position: absolute;
+  inset: auto 18px 22px;
+  display: grid;
+  gap: 10px;
+}
+
+.screen-actions button {
+  min-height: 48px;
+  border: 1px solid #e7e7e7;
+  border-radius: 7px;
+  background: var(--white);
+  font-weight: 900;
+}
+
+.screen-actions button:disabled {
+  color: #999;
+  background: #f5f5f5;
+}
+
+.screen-nav {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 14px 28px 24px;
+  border-top: 1px solid #e7e7e7;
+  background: rgba(255, 255, 255, 0.96);
+  color: #aaa;
+}
+
+.screen-nav strong {
+  color: #2b1647;
 }
 
 .phone-nav {
@@ -873,10 +996,32 @@ h2 {
   color: #2b1647;
 }
 
+.tap-ring {
+  position: absolute;
+  right: 18px;
+  top: 74px;
+  border: 1px solid rgba(241, 91, 120, 0.45);
+  border-radius: 999px;
+  background: #fff7f9;
+  color: #a82f4a;
+  padding: 7px 12px;
+  font-size: 0.8rem;
+  font-weight: 900;
+  opacity: 0;
+}
+
+.wallet-ring {
+  top: 120px;
+}
+
+.methods-ring {
+  top: 190px;
+}
+
 .rent-animation-steps {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -897,28 +1042,52 @@ h2 {
   animation: liftSortedCard 700ms ease 200ms both;
 }
 
+.rent-guide-section.animate-rent .stage-profile {
+  animation: stackProfile 900ms ease 650ms both;
+}
+
 .rent-guide-section.animate-rent .stage-wallet {
-  animation: revealPhone 700ms ease 900ms both;
+  animation: stackWallet 900ms ease 1050ms both;
+}
+
+.rent-guide-section.animate-rent .stage-methods {
+  animation: stackMethods 900ms ease 1450ms both;
+}
+
+.rent-guide-section.animate-rent .stage-add {
+  animation: stackAdd 900ms ease 1850ms both;
 }
 
 .rent-guide-section.animate-rent .payment-methods {
-  animation: pulsePaymentMethod 900ms ease 1650ms both;
+  animation: pulsePaymentMethod 900ms ease 1900ms both;
+}
+
+.rent-guide-section.animate-rent .add-method {
+  animation: pulsePaymentMethod 900ms ease 2350ms both;
+}
+
+.rent-guide-section.animate-rent .tap-ring {
+  animation: ringIn 700ms ease 1300ms both;
 }
 
 .rent-guide-section.animate-rent .rent-step-download {
   animation: activateStep 500ms ease 300ms both;
 }
 
+.rent-guide-section.animate-rent .rent-step-profile {
+  animation: activateStep 500ms ease 900ms both;
+}
+
 .rent-guide-section.animate-rent .rent-step-wallet {
-  animation: activateStep 500ms ease 1050ms both;
+  animation: activateStep 500ms ease 1350ms both;
 }
 
 .rent-guide-section.animate-rent .rent-step-payment {
-  animation: activateStep 500ms ease 1750ms both;
+  animation: activateStep 500ms ease 1850ms both;
 }
 
-.rent-guide-section.animate-rent .rent-step-auto {
-  animation: activateStep 500ms ease 2450ms both;
+.rent-guide-section.animate-rent .rent-step-add {
+  animation: activateStep 500ms ease 2350ms both;
 }
 
 @keyframes liftSortedCard {
@@ -933,15 +1102,51 @@ h2 {
   }
 }
 
-@keyframes revealPhone {
+@keyframes stackProfile {
   from {
-    opacity: 0.7;
-    transform: translateY(22px) scale(0.98);
+    opacity: 0;
+    transform: translateX(-74%) translateY(40px) rotate(-16deg) scale(0.8);
+  }
+
+  to {
+    opacity: 0.72;
+    transform: translateX(-68%) rotate(-8deg) scale(0.88);
+  }
+}
+
+@keyframes stackWallet {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px) rotate(-5deg) scale(0.84);
+  }
+
+  to {
+    opacity: 0.94;
+    transform: translateX(-50%) rotate(0deg) scale(0.94);
+  }
+}
+
+@keyframes stackMethods {
+  from {
+    opacity: 0;
+    transform: translateX(-26%) translateY(40px) rotate(16deg) scale(0.8);
+  }
+
+  to {
+    opacity: 0.86;
+    transform: translateX(-32%) rotate(8deg) scale(0.88);
+  }
+}
+
+@keyframes stackAdd {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(60px) rotate(0deg) scale(0.78);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(-50%) translateY(28px) rotate(0deg) scale(0.82);
   }
 }
 
@@ -962,6 +1167,18 @@ h2 {
   }
 }
 
+@keyframes ringIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes activateStep {
   from {
     border-color: var(--line);
@@ -973,6 +1190,163 @@ h2 {
     border-color: #f15b78;
     color: var(--ink);
     transform: translateY(-2px);
+  }
+}
+
+.utility-guide-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(340px, 1.2fr);
+  gap: clamp(28px, 6vw, 76px);
+  align-items: center;
+  border-top: 1px solid var(--line);
+  background: #f2f6f1;
+}
+
+.utility-guide-copy p {
+  max-width: 560px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.utility-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.utility-page-link {
+  display: inline-grid;
+  min-height: 44px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0 18px;
+  font-weight: 900;
+}
+
+.utility-preview {
+  position: relative;
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+}
+
+.utility-orbit {
+  position: absolute;
+  inset: 26px;
+  border: 1px dashed rgba(31, 107, 74, 0.26);
+  border-radius: 999px;
+  animation: utilityOrbit 12s linear infinite;
+}
+
+.utility-orbit span {
+  position: absolute;
+  display: grid;
+  min-width: 112px;
+  min-height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--green-dark);
+  font-weight: 900;
+  box-shadow: 0 12px 24px rgba(24, 32, 29, 0.08);
+}
+
+.utility-orbit span:nth-child(1) {
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.utility-orbit span:nth-child(2) {
+  right: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.utility-orbit span:nth-child(3) {
+  left: -28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.utility-card-main {
+  position: relative;
+  z-index: 2;
+  max-width: 330px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 18px 36px rgba(24, 32, 29, 0.12);
+}
+
+.utility-card-main strong {
+  display: block;
+  font-size: 1.55rem;
+}
+
+.utility-card-main p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.utility-card-main a {
+  display: inline-grid;
+  min-height: 40px;
+  place-items: center;
+  border-radius: 6px;
+  background: #f0d77e;
+  color: #222;
+  padding: 0 16px;
+  font-weight: 900;
+}
+
+.utility-guide-section.animate-utility .utility-card-main {
+  animation: utilityCardPop 620ms ease both;
+}
+
+.utility-guide-section.animate-utility .utility-orbit span {
+  animation: utilityChipIn 560ms ease both;
+}
+
+.utility-guide-section.animate-utility .utility-orbit span:nth-child(2) {
+  animation-delay: 140ms;
+}
+
+.utility-guide-section.animate-utility .utility-orbit span:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+@keyframes utilityOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes utilityCardPop {
+  from {
+    opacity: 0.7;
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes utilityChipIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -1515,6 +1889,90 @@ h2 {
   border-top: 1px solid var(--line);
 }
 
+.utility-page {
+  background: #f7f8f5;
+}
+
+.utility-hero {
+  min-height: 560px;
+  display: grid;
+  align-items: end;
+  padding-top: 120px;
+  background:
+    linear-gradient(90deg, rgba(16, 25, 21, 0.88), rgba(16, 25, 21, 0.56)),
+    url("./assets/leasing-hero-publish.jpg") center / cover;
+  color: var(--white);
+}
+
+.utility-hero > div {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-bottom: 72px;
+}
+
+.utility-hero h1 {
+  max-width: 720px;
+  margin: 0;
+}
+
+.utility-hero .hero-copy {
+  max-width: 720px;
+}
+
+.utility-page-section,
+.utility-service-band {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.utility-check-grid,
+.utility-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.utility-check-grid article,
+.utility-service-grid article {
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(24, 32, 29, 0.06);
+}
+
+.utility-check-grid span {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: #f0d77e;
+  color: #222;
+  font-weight: 900;
+}
+
+.utility-check-grid strong,
+.utility-service-grid strong {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 1.08rem;
+}
+
+.utility-check-grid p,
+.utility-service-grid span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.utility-service-band {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.6fr) minmax(340px, 1.4fr);
+  gap: clamp(24px, 5vw, 60px);
+}
+
 .topic-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1800,13 +2258,53 @@ h2 {
   .split-section,
   .email-guide-section,
   .rent-guide-section,
+  .utility-guide-section,
   .keys-guide-section,
   .manager-guide-section,
+  .utility-service-band,
   .email-demo,
   .sorted-demo,
   .handoff-demo,
-  .topic-grid {
+  .topic-grid,
+  .utility-check-grid,
+  .utility-service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .utility-hero h1 {
+    max-width: none;
+  }
+
+  .utility-preview {
+    min-height: 340px;
+  }
+
+  .rent-screen-stack {
+    min-height: 650px;
+  }
+
+  .rent-card-profile,
+  .rent-card-wallet,
+  .rent-card-methods,
+  .rent-card-add {
+    left: 50%;
+    width: min(100%, 330px);
+  }
+
+  .rent-card-profile {
+    transform: translateX(-50%) rotate(-4deg) scale(0.86);
+  }
+
+  .rent-card-wallet {
+    transform: translateX(-50%) rotate(0deg) scale(0.92);
+  }
+
+  .rent-card-methods {
+    transform: translateX(-50%) rotate(4deg) scale(0.86);
+  }
+
+  .rent-card-add {
+    transform: translateX(-50%) translateY(28px) rotate(0deg) scale(0.82);
   }
 
   .rent-animation-steps {
@@ -1871,8 +2369,8 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .phone-frame {
-    min-height: 580px;
+  .rent-phone-card {
+    min-height: 520px;
   }
 
   .handoff-phone {

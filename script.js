@@ -16,6 +16,7 @@ const keysGuide = document.querySelector("#keys");
 const replayKeysButton = document.querySelector("[data-replay-keys]");
 const managerGuide = document.querySelector("#move-in-support");
 const replayManagerButtons = document.querySelectorAll("[data-replay-manager]");
+const utilityGuide = document.querySelector("#utilities");
 
 let activeFilter = "all";
 
@@ -50,6 +51,10 @@ function setSearch(value) {
   });
   updateFaq();
   document.querySelector("#faq").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function scrollToSection(selector) {
+  document.querySelector(selector)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function playEmailGuide() {
@@ -96,6 +101,57 @@ function playManagerGuide() {
   }, 260);
 }
 
+function playUtilityGuide() {
+  if (!utilityGuide) return;
+
+  utilityGuide.scrollIntoView({ behavior: "smooth", block: "start" });
+  utilityGuide.classList.remove("animate-utility");
+
+  window.setTimeout(() => {
+    utilityGuide.classList.add("animate-utility");
+  }, 260);
+}
+
+function routeQuery(value) {
+  const query = normalize(value);
+  if (!query) return false;
+
+  const routes = [
+    {
+      terms: ["agreement", "contract", "lease", "sign", "signature", "initial", "email", "inbox", "spam", "junk"],
+      action: playEmailGuide,
+    },
+    {
+      terms: ["bond", "deposit", "reference", "receipt"],
+      action: () => scrollToSection("#bond"),
+    },
+    {
+      terms: ["sorted", "rent", "wallet", "profile", "payment method", "payment methods", "card", "bank", "automatic"],
+      action: playRentGuide,
+    },
+    {
+      terms: ["utility", "utilities", "electricity", "gas", "internet", "myconnect", "power"],
+      action: playUtilityGuide,
+    },
+    {
+      terms: ["key", "keys", "collection", "office", "marcus clarke", "address"],
+      action: playKeysGuide,
+    },
+    {
+      terms: ["property manager", "real estate agent", "maintenance", "repair", "after move", "after move-in", "handover"],
+      action: playManagerGuide,
+    },
+  ];
+
+  const match = routes.find((route) => route.terms.some((term) => query.includes(term)));
+  if (!match) return false;
+
+  searchInput.value = value;
+  updateFaq();
+  match.action();
+  return true;
+}
+
 faqItems.forEach((item) => {
   const question = item.querySelector(".faq-question");
   const mark = item.querySelector(".chevron");
@@ -108,6 +164,12 @@ faqItems.forEach((item) => {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    if (button.hasAttribute("data-jump-utility")) {
+      filterButtons.forEach((item) => item.classList.toggle("active", item === button));
+      playUtilityGuide();
+      return;
+    }
+
     activeFilter = button.dataset.filter;
     filterButtons.forEach((item) => item.classList.toggle("active", item === button));
     updateFaq();
@@ -146,7 +208,16 @@ document.querySelectorAll("[data-query]").forEach((button) => {
       return;
     }
 
-    setSearch(button.dataset.query);
+    if (button.hasAttribute("data-play-utility")) {
+      searchInput.value = button.dataset.query;
+      updateFaq();
+      playUtilityGuide();
+      return;
+    }
+
+    if (!routeQuery(button.dataset.query)) {
+      setSearch(button.dataset.query);
+    }
   });
 });
 
@@ -161,7 +232,10 @@ searchInput.addEventListener("input", updateFaq);
 
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  updateFaq();
+  if (!routeQuery(searchInput.value)) {
+    updateFaq();
+    document.querySelector("#faq").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 });
 
 function openChat() {
@@ -205,7 +279,7 @@ function getDraftReply(question) {
   }
 
   if (text.includes("utility") || text.includes("utilities") || text.includes("electricity") || text.includes("gas") || text.includes("internet") || text.includes("myconnect")) {
-    return "After your agreement is fully signed, utility guidelines and a downloadable copy of your agreement will be sent in the email titled \"Welcome to your new home\". If a utility guide is not provided, MyConnect can assist with electricity, gas, and internet setup.";
+    return "Use the Utility Guide on this website to prepare electricity, gas, internet, and any building-specific requirements before move-in. Have your move-in date, property details, ID, and contact information ready before arranging connections.";
   }
 
   if (text.includes("key") || text.includes("keys") || text.includes("collection") || text.includes("office address")) {
