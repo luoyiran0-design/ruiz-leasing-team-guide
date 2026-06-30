@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Resident Tenancy Agreement & Bond Guide</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f6b4a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='white'%3EL%3C/text%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="./styles.css?v=20260630-utility" />
+    <link rel="stylesheet" href="./styles.css?v=20260630-rentfix2" />
   </head>
   <body>
     <header class="site-header">
@@ -176,18 +176,21 @@
           <button class="replay-button" type="button" data-replay-rent>Replay Rent Setup</button>
         </div>
 
-        <div class="sorted-demo rent-orbit-demo" aria-label="Animated Sorted app rent payment setup guide">
+        <div class="sorted-demo rent-step-demo" aria-label="Step-by-step Sorted app rent payment setup guide">
           <div class="download-card sorted-stage stage-download">
+            <span class="step-badge">Step 1</span>
             <img class="sorted-app-icon" src="./assets/sorted-logo-publish.jpg" alt="Sorted app logo" />
             <div>
               <strong>Sorted</strong>
               <span>Download the app first</span>
             </div>
             <button type="button">Open</button>
+            <p class="action-callout">Install Sorted, then open the app.</p>
           </div>
 
           <div class="rent-screen-stack">
             <article class="rent-phone-card rent-card-profile sorted-stage stage-profile">
+              <span class="step-badge">Step 2</span>
               <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
               <div class="screen-menu"></div>
               <h3>Account</h3>
@@ -196,16 +199,29 @@
                 <span>Wallet</span>
                 <span>Applications</span>
               </div>
-              <div class="screen-list compact">
-                <div class="screen-row"><span>Profile details</span><b>›</b></div>
-                <div class="screen-row"><span>Documents</span><b>›</b></div>
-                <div class="screen-row"><span>Settings</span><b>›</b></div>
+              <div class="profile-summary-card">
+                <span class="profile-avatar" aria-hidden="true"></span>
+                <div>
+                  <strong>Resident Name</strong>
+                  <span>resident@email.com</span>
+                </div>
               </div>
+              <div class="personal-details-card">
+                <h4>Personal details</h4>
+                <div><span>Name</span><strong>Resident Name</strong></div>
+                <div><span>Email</span><strong>resident@email.com</strong></div>
+                <div><span>Phone</span><strong>Hidden for privacy</strong><em>Edit</em></div>
+                <div><span>DOB</span><strong>Hidden for privacy</strong></div>
+              </div>
+              <button class="delete-account-demo" type="button">Delete My Account</button>
               <div class="screen-nav"><span>Home</span><span>Services</span><strong>Profile</strong></div>
-              <span class="tap-ring profile-ring">Tap Profile</span>
+              <span class="gesture-arrow profile-arrow">↑</span>
+              <span class="tap-target profile-target">Wallet</span>
+              <p class="action-callout">Once you are on <strong>Profile</strong>, tap <strong>Wallet</strong> at the top.</p>
             </article>
 
             <article class="rent-phone-card rent-card-wallet sorted-stage stage-wallet">
+              <span class="step-badge">Step 3</span>
               <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
               <h3>Account</h3>
               <div class="screen-tabs">
@@ -213,6 +229,8 @@
                 <strong>Wallet</strong>
                 <span>Applications</span>
               </div>
+              <span class="gesture-arrow wallet-arrow">↑</span>
+              <span class="tap-target wallet-target">Wallet</span>
               <div class="balance-card">
                 <div><strong>$0.00</strong><span>Cash Balance</span></div>
                 <div><strong>$0.00</strong><span>Promo Credits</span></div>
@@ -223,10 +241,11 @@
                 <div class="screen-row"><span>Transactions</span><b>›</b></div>
                 <div class="screen-row highlight payment-methods"><span>Payment methods</span><b>›</b></div>
               </div>
-              <span class="tap-ring wallet-ring">Tap Wallet</span>
+              <p class="action-callout">Open the <strong>Wallet</strong> tab.</p>
             </article>
 
             <article class="rent-phone-card rent-card-methods sorted-stage stage-methods">
+              <span class="step-badge">Step 4</span>
               <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
               <div class="screen-topline">‹</div>
               <h3>Payment methods</h3>
@@ -234,20 +253,26 @@
                 <div class="screen-row muted"><span>Saved method</span><b>••••</b></div>
                 <div class="screen-row highlight add-method"><span>+ Add new payment method</span><b>›</b></div>
               </div>
-              <span class="tap-ring methods-ring">Tap Payment methods</span>
+              <span class="gesture-arrow methods-arrow">→</span>
+              <span class="tap-target methods-target">Add new payment method</span>
+              <p class="action-callout">Tap <strong>+ Add new payment method</strong>.</p>
             </article>
 
             <article class="rent-phone-card rent-card-add sorted-stage stage-add">
+              <span class="step-badge">Step 5</span>
               <div class="screen-status"><span>16:19</span><span>Wi-Fi</span></div>
               <div class="screen-topline">‹</div>
               <h3>Add payment method</h3>
               <p>Please add your preferred payment method. These details are used when rent is due.</p>
               <div class="screen-choice">Bank Account</div>
               <div class="screen-choice">Credit Card</div>
+              <span class="gesture-arrow add-arrow">↙</span>
+              <span class="tap-target add-target">Bank Account or Credit Card</span>
               <div class="screen-actions">
                 <button type="button" disabled>Next</button>
                 <button type="button">Back</button>
               </div>
+              <p class="action-callout">Select a payment type and complete the details.</p>
             </article>
           </div>
 
@@ -556,6 +581,6 @@
     </aside>
     <div class="scrim" data-close-chat></div>
 
-    <script src="./script.js?v=20260630-utility"></script>
+    <script src="./script.js?v=20260630-rentfix2"></script>
   </body>
 </html>
