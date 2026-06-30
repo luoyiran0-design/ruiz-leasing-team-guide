@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resident Tenancy Agreement & Bond Guide</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f6b4a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='18' font-weight='700' fill='white'%3EL%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="RUIZ Leasing Team">
+        <span class="brand-mark">R</span>
+        <span>RUIZ LEASING TEAM</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#steps">Next Steps</a>
+        <a href="#bond">Bond</a>
+        <a href="#rent">Rent</a>
+        <a href="#keys">Keys</a>
+        <a href="#move-in-support">After Move-In</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="header-action" data-open-chat type="button">Ask Assistant</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img src="./assets/leasing-hero-publish.jpg" alt="Resident receiving leasing support in a modern apartment lobby" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">After Your Tenancy Agreement Is Sent</p>
+          <h1 id="hero-title">Tenancy Agreement & Bond Guide</h1>
+          <p class="hero-copy">
+            Use this page after our leasing team sends your tenancy agreement. It explains where to find your agreement, how to sign it, how to pay your bond, how to set up rent payments, and what happens before key collection.
+          </p>
+          <form class="search-shell" role="search">
+            <label class="sr-only" for="site-search">Search resident questions</label>
+            <input id="site-search" type="search" placeholder="Search: tenancy agreement, bond, Sorted app, keys..." autocomplete="off" />
+            <button type="submit">Search</button>
+          </form>
+          <div class="quick-links" aria-label="Popular topics">
+            <button type="button" data-query="tenancy agreement email" data-play-email>Find Agreement</button>
+            <button type="button" data-query="bond">Pay Bond</button>
+            <button type="button" data-query="sorted app" data-play-rent>Sorted App</button>
+            <button type="button" data-query="key collection" data-play-keys>Keys</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="audience-band five-steps" id="steps" aria-label="Tenancy agreement steps">
+        <a class="audience-link" href="#find-agreement" data-query="tenancy agreement email" data-play-email>
+          <span class="icon">1</span>
+          <span>
+            <strong>Find Your Agreement</strong>
+            <small>Look for the email titled "Time to sign your tenancy agreement".</small>
+          </span>
+        </a>
+        <a class="audience-link" href="#faq" data-query="sign">
+          <span class="icon">2</span>
+          <span>
+            <strong>Review & Sign</strong>
+            <small>Open the signing link and complete all required initials and signatures.</small>
+          </span>
+        </a>
+        <a class="audience-link" href="#bond" data-query="bond">
+          <span class="icon">3</span>
+          <span>
+            <strong>Pay Your Bond</strong>
+            <small>Use the bond payment details in the same email and enter the correct reference number.</small>
+          </span>
+        </a>
+        <a class="audience-link" href="#rent" data-query="sorted app" data-play-rent>
+          <span class="icon">4</span>
+          <span>
+            <strong>Set Up Your Rent Payment</strong>
+            <small>Download Sorted, open Wallet, and add your bank card before move-in.</small>
+          </span>
+        </a>
+        <a class="audience-link" href="#move-in-support" data-query="property manager" data-play-manager>
+          <span class="icon">5</span>
+          <span>
+            <strong>Find Property Manager Contact</strong>
+            <small>Open your property in Sorted and check the Real estate agent section after move-in.</small>
+          </span>
+        </a>
+      </section>
+
+      <section class="email-guide-section" id="find-agreement" aria-labelledby="email-guide-title">
+        <div class="email-guide-copy">
+          <p class="eyebrow">Find Your Agreement</p>
+          <h2 id="email-guide-title">Look for This Email First</h2>
+          <p>
+            Your tenancy agreement and bond instructions arrive in the same email. The most important things to check are the email subject, the bond payment details, the payment reference, and the Sign now button.
+          </p>
+          <button class="replay-button" type="button" data-replay-email>Replay Guide</button>
+        </div>
+
+        <div class="email-demo" aria-label="Animated example of the tenancy agreement email">
+          <div class="email-inbox">
+            <div class="inbox-toolbar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="inbox-search">Search mail: Time to sign your tenancy agreement</div>
+            <div class="inbox-row active">
+              <strong>RUIZ</strong>
+              <span>Time to sign your tenancy agreement</span>
+            </div>
+            <div class="inbox-row">
+              <strong>Sorted</strong>
+              <span>Set up your rent payments</span>
+            </div>
+          </div>
+
+          <article class="email-card">
+            <header class="email-card-header">
+              <div class="ruiz-wordmark">RUIZ</div>
+              <p class="email-subject">
+                <span class="email-highlight highlight-subject">Time to sign your tenancy agreement</span>
+              </p>
+            </header>
+            <div class="email-body">
+              <p>Hi Resident,</p>
+              <p>It is time to secure your new home. Here is what you need to do next:</p>
+              <ol class="email-steps">
+                <li>
+                  Pay your bond.
+                  <div class="payment-box email-highlight highlight-payment">
+                    <div><strong>Payment Type:</strong><span>Rent Bond</span></div>
+                    <div><strong>Amount:</strong><span>Shown in your email</span></div>
+                    <div><strong>Due Date:</strong><span>Shown in your email</span></div>
+                    <div><strong>Account Name:</strong><span>ACT Rental Bonds</span></div>
+                    <div><strong>Payment Reference:</strong><span>Your unique reference number</span></div>
+                  </div>
+                </li>
+                <li>
+                  Sign your tenancy agreement by clicking the
+                  <span class="email-highlight highlight-sign-word">Sign now</span>
+                  link below.
+                </li>
+                <li>After the above steps are completed, we will sign from our side and return a final copy for your records.</li>
+              </ol>
+              <button class="sign-now email-highlight highlight-button" type="button">Sign now</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="split-section" id="bond">
+        <div>
+          <p class="eyebrow">Bond Payment</p>
+          <h2>How to Pay Your Bond</h2>
+          <p>To confirm your tenancy, your tenancy agreement must be signed and your bond payment must be completed as instructed in the email titled "Time to sign your tenancy agreement".</p>
+        </div>
+        <div class="process-list">
+          <div><span>01</span><strong>Use the bond details in your signing email</strong><p>Bond payment details are included in the same email as your tenancy agreement.</p></div>
+          <div><span>02</span><strong>Enter the correct payment reference</strong><p>The reference number must be entered in the payment description so your bond can be allocated correctly.</p></div>
+          <div><span>03</span><strong>Keep proof of payment</strong><p>Save your receipt, screenshot, or confirmation number until your tenancy has been confirmed.</p></div>
+        </div>
+      </section>
+
+      <section class="rent-guide-section" id="rent" aria-labelledby="rent-guide-title">
+        <div class="rent-guide-copy">
+          <p class="eyebrow">Rent Payment Setup</p>
+          <h2 id="rent-guide-title">Set Up Your Rent Payment</h2>
+          <p>First download the Sorted app. Then open your Account, go to Wallet, and add your bank card under Payment methods. Your rent will be automatically charged on your move-in day.</p>
+          <div class="store-links" aria-label="Sorted app download links">
+            <a href="https://apps.apple.com/au/app/sorted/id1232960956" target="_blank" rel="noreferrer">Download on App Store</a>
+            <a href="https://play.google.com/store/apps/details?id=com.sortedservices.sorted&hl=en_AU&gl=US" target="_blank" rel="noreferrer">Download on Google Play</a>
+          </div>
+          <button class="replay-button" type="button" data-replay-rent>Replay Rent Setup</button>
+        </div>
+
+        <div class="sorted-demo" aria-label="Animated Sorted app rent payment setup guide">
+          <div class="download-card sorted-stage stage-download">
+            <img class="sorted-app-icon" src="./assets/sorted-logo-publish.jpg" alt="Sorted app logo" />
+            <div>
+              <strong>Sorted</strong>
+              <span>Download the app first</span>
+            </div>
+            <button type="button">Open</button>
+          </div>
+
+          <div class="phone-frame sorted-stage stage-wallet">
+            <div class="phone-status">
+              <span>16:19</span>
+              <span>••• Wi-Fi ▰</span>
+            </div>
+            <div class="phone-menu"></div>
+            <h3>Account</h3>
+            <div class="wallet-tabs">
+              <span>Profile</span>
+              <strong>Wallet</strong>
+              <span>Applications</span>
+            </div>
+            <div class="balance-card">
+              <div><strong>$0.00</strong><span>Cash Balance</span></div>
+              <div><strong>$0.00</strong><span>Promo Credits</span></div>
+              <button type="button">Spend</button>
+            </div>
+            <div class="wallet-menu">
+              <div><span>◇</span><strong>Redeem a code</strong><b>›</b></div>
+              <div><span>♙</span><strong>Refer a friend</strong><b>›</b></div>
+              <div><span>□</span><strong>Transactions</strong><b>›</b></div>
+              <div class="payment-methods"><span>▭</span><strong>Payment methods</strong><b>›</b></div>
+            </div>
+            <div class="phone-nav">
+              <span>Home</span>
+              <span>Services</span>
+              <strong>Profile</strong>
+            </div>
+          </div>
+
+          <ol class="rent-animation-steps">
+            <li class="rent-step-download">Download Sorted</li>
+            <li class="rent-step-wallet">Open Account > Wallet</li>
+            <li class="rent-step-payment">Add your card in Payment methods</li>
+            <li class="rent-step-auto">Rent will be charged automatically on move-in day</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="keys-guide-section" id="keys" aria-labelledby="keys-guide-title">
+        <div class="keys-guide-copy">
+          <p class="eyebrow">Key Collection</p>
+          <h2 id="keys-guide-title">Where to Collect Your Keys</h2>
+          <p>After your agreement, bond, and rent payment setup are complete, collect your keys in person from the Ruiz Property office during business hours.</p>
+          <button class="replay-button" type="button" data-replay-keys>Replay Key Collection</button>
+        </div>
+
+        <div class="map-demo" aria-label="Animated key collection address guide">
+          <div class="map-panel">
+            <div class="map-card">
+              <strong>Ruiz Property</strong>
+              <span>Real estate agency</span>
+              <div class="map-actions">
+                <span>Directions</span>
+                <span>Save</span>
+                <span>Share</span>
+              </div>
+              <p class="map-address-small">Level 7/60 Marcus Clarke St, Canberra ACT 2601</p>
+              <p class="map-time-small">10:00a.m - 5:00p.m, Monday to Friday</p>
+            </div>
+            <div class="map-canvas">
+              <iframe
+                title="Google Map showing Ruiz Property"
+                src="https://www.google.com/maps?q=Level%207%2F60%20Marcus%20Clarke%20St%2C%20Canberra%20ACT%202601&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="address-popout">
+            <strong>LEVEL 7/60 MARCUS CLARKE ST, CANBERRA ACT 2601</strong>
+            <span>KEY COLLECTION: 10:00a.m - 5:00p.m</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="manager-guide-section" id="move-in-support" aria-labelledby="manager-guide-title">
+        <div class="manager-guide-copy">
+          <p class="eyebrow">After Key Collection</p>
+          <h2 id="manager-guide-title">Contact Your Property Manager After Move-In</h2>
+          <p>Once you have collected your keys and moved in, the property is managed by the assigned Property Manager. For repairs, maintenance, property access, or ongoing tenancy questions, please contact the Property Manager shown in Sorted.</p>
+          <div class="handoff-note">
+            <strong>Important:</strong>
+            <span>The leasing team helps before move-in, but does not manage the property after handover.</span>
+          </div>
+          <button class="replay-button" type="button" data-replay-manager>Replay Contact Guide</button>
+        </div>
+
+        <div class="handoff-demo" aria-label="Animated Sorted app guide showing property manager contact">
+          <div class="handoff-phone dashboard-screen">
+            <div class="phone-status">
+              <span>11:07</span>
+              <span>••• Wi-Fi ▰</span>
+            </div>
+            <div class="handoff-top">
+              <span class="phone-menu"></span>
+              <button class="hidden-address-pill" type="button">•••/••• PROPERTY ADDRESS</button>
+            </div>
+            <h3>Welcome</h3>
+            <div class="dashboard-tabs">
+              <strong>Dashboard</strong>
+              <span>Activity</span>
+              <span>Requests</span>
+            </div>
+            <div class="dashboard-section-title">
+              <strong>Properties</strong>
+              <span>See all</span>
+            </div>
+            <button class="property-card-trigger" type="button" data-replay-manager>
+              <strong>•••/••• Hidden property address</strong>
+              <span>Tap this property card to view details</span>
+              <b>›</b>
+            </button>
+            <div class="dashboard-section-title">
+              <strong>Active services</strong>
+            </div>
+            <div class="service-card-mini">
+              <span>Rent</span>
+              <strong>$----pf</strong>
+              <em>Move-in rent setup active</em>
+            </div>
+            <div class="phone-nav">
+              <strong>Home</strong>
+              <span>Services</span>
+              <span>Profile</span>
+            </div>
+          </div>
+
+          <div class="handoff-phone details-screen">
+            <div class="phone-status">
+              <span>11:07</span>
+              <span>••• Wi-Fi ▰</span>
+            </div>
+            <div class="details-title">Hidden property address</div>
+            <div class="property-hero"></div>
+            <div class="details-card">
+              <h3>Property details</h3>
+              <div><span>Property type</span><strong>Home</strong></div>
+              <div><span>You are the</span><strong>Tenant</strong></div>
+            </div>
+            <div class="agent-card">
+              <h3>Real estate agent</h3>
+              <div class="agent-profile">
+                <span>PM</span>
+                <strong>Your assigned Property Manager</strong>
+              </div>
+              <div><span>Phone</span><strong>Shown in Sorted</strong></div>
+              <div><span>Email</span><strong>Shown in Sorted</strong></div>
+            </div>
+            <div class="manager-message">
+              <strong>After move-in, contact this Property Manager for property matters.</strong>
+              <span>Please do not contact the leasing team for ongoing property management or maintenance requests.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-heading">
+          <p class="eyebrow">Resident Questions</p>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="filter-bar" aria-label="FAQ filters">
+          <button class="filter active" type="button" data-filter="all">All</button>
+          <button class="filter" type="button" data-filter="lease">Agreement</button>
+          <button class="filter" type="button" data-filter="bond">Bond</button>
+          <button class="filter" type="button" data-filter="rent">Rent</button>
+          <button class="filter" type="button" data-filter="utilities">Utilities</button>
+          <button class="filter" type="button" data-filter="manager">Property Manager</button>
+          <button class="filter" type="button" data-filter="confirmation">Confirmation</button>
+        </div>
+        <div class="faq-list" id="faq-list">
+          <article class="faq-item" data-category="lease" data-keywords="tenancy agreement lease email contract time to sign where link inbox spam junk find document">
+            <button class="faq-question" type="button">
+              <span>Where can I find my tenancy agreement?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Your tenancy agreement is sent in the email titled "Time to sign your tenancy agreement". Search the inbox linked to your rental application. If you do not see it, check spam, junk, promotions, and any secondary inboxes.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="lease" data-keywords="lease not received missing email wrong email resend tenancy agreement invitation">
+            <button class="faq-question" type="button">
+              <span>I cannot find the tenancy agreement email. What should I do?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>First check spam, junk, promotions, and any secondary inboxes. If you still cannot find it, contact the leasing team with your full name, unit number, phone number, and the email address used on your application so we can verify the file and resend the link if needed.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="lease" data-keywords="sign lease initials required fields complete electronic signature error">
+            <button class="faq-question" type="button">
+              <span>How do I complete the tenancy agreement signing?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Open the signing link, review the tenancy agreement carefully, and complete every required initial, checkbox, and signature field. If there is more than one applicant or guarantor, each person may need to sign from their own email link before the agreement is fully complete.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="bond" data-keywords="bond pay payment reference number description amount due">
+            <button class="faq-question" type="button">
+              <span>How do I pay my bond?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Use the bond payment details included in the same email as your tenancy agreement. When making the payment, enter the correct payment reference number in the description field so the bond can be allocated correctly.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="bond confirmation" data-keywords="bond complete confirm tenancy signed paid receipt reference">
+            <button class="faq-question" type="button">
+              <span>What is required to confirm my tenancy?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Your tenancy is confirmed when your tenancy agreement has been fully signed and your bond payment has been completed as instructed. Keep your payment receipt or confirmation number for your records.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="rent" data-keywords="rent payment sorted app wallet bank account iphone android app store google play">
+            <button class="faq-question" type="button">
+              <span>How do I set up rent payments?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Download the Sorted app on your mobile device. iPhone users can download it from the App Store, and Android users can download it from Google Play. Log in using the email address associated with your rental application, then go to Account > Wallet > Payment methods and add your bank card. Your rent will be automatically charged on your move-in day.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="utilities confirmation" data-keywords="welcome to your new home utilities downloadable links agreement copy myconnect electricity gas internet">
+            <button class="faq-question" type="button">
+              <span>When will I receive my agreement copy and utility information?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Once your tenancy agreement has been fully signed, utility connection guidelines and a downloadable copy of your agreement will be provided in the email titled "Welcome to your new home".</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="utilities" data-keywords="myconnect utilities electricity gas internet connection support">
+            <button class="faq-question" type="button">
+              <span>Who can help me connect utilities?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>If a utility guideline is not provided, MyConnect can assist with setting up electricity, gas, and internet after your agreement is fully signed. More information is available at myconnect.com.au/landing/ruiz.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="confirmation" data-keywords="key collection keys office address time monday friday marcus clarke canberra">
+            <button class="faq-question" type="button">
+              <span>When and where can I collect my keys?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Keys must be collected in person from LEVEL 7/60 MARCUS CLARKE ST, CANBERRA ACT 2601 between 10:00a.m - 5:00p.m, Monday to Friday.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="manager confirmation" data-keywords="property manager real estate agent after move in handover maintenance repair leasing team sorted contact">
+            <button class="faq-question" type="button">
+              <span>Who should I contact after I collect my keys?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>After key collection and move-in, contact your assigned Property Manager or real estate agent for property management, repairs, maintenance, access, and ongoing tenancy questions. The leasing team helps before move-in but does not manage the property after handover.</p>
+            </div>
+          </article>
+          <article class="faq-item" data-category="manager" data-keywords="phone email property manager contact real estate agent sorted">
+            <button class="faq-question" type="button">
+              <span>Where can I find my Property Manager contact details?</span>
+              <span class="chevron">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Open your property in Sorted and look for the Real estate agent section. The assigned Property Manager's phone number and email address will be shown there.</p>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>No matching questions found. Try another keyword or ask the Assistant.</p>
+      </section>
+
+      <section class="split-section" id="resident">
+        <div>
+          <p class="eyebrow">Before You Contact Us</p>
+          <h2>Have These Details Ready</h2>
+          <p>This helps the leasing team find your file quickly if you need help locating the agreement or confirming a bond payment.</p>
+        </div>
+        <div class="topic-grid">
+          <a href="#faq" class="topic-tile" data-query="tenancy agreement email"><strong>Email Address</strong><span>The same email address used on your rental application.</span></a>
+          <a href="#faq" class="topic-tile" data-query="unit"><strong>Unit Information</strong><span>Your full name and the apartment or unit number.</span></a>
+          <a href="#faq" class="topic-tile" data-query="bond"><strong>Bond Payment Proof</strong><span>Your receipt, screenshot, or confirmation number.</span></a>
+          <a href="#faq" class="topic-tile" data-query="confirmation"><strong>Signing Status</strong><span>Whether all tenants and guarantors have completed their signatures.</span></a>
+        </div>
+      </section>
+
+      <section class="contact-band" id="contact">
+        <div>
+          <p class="eyebrow">Still Need Help?</p>
+          <h2>Before Move-In Leasing Support</h2>
+          <p>Use these contact details before move-in if you cannot find the agreement email or need help confirming your bond payment. After key collection, please contact your Property Manager for property matters.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:Leasing@ruizproperty.com.au">Leasing@ruizproperty.com.au</a>
+          <a href="tel:0492947050">0492 947 050</a>
+          <button data-open-chat type="button">Ask Assistant</button>
+        </div>
+      </section>
+
+      <footer class="site-footer" aria-label="Important notice">
+        <strong>Important Notice</strong>
+        <p>This guide is provided by RUIZ Leasing Team for general resident onboarding support only. Processes, timeframes, payment instructions, app features, and contact pathways may be updated from time to time. RUIZ Leasing Team reserves the right to update, clarify, and interpret the information on this page.</p>
+      </footer>
+    </main>
+
+    <aside class="chat-panel" id="chat-panel" aria-label="Resident Assistant" aria-hidden="true">
+      <div class="chat-header">
+        <div>
+          <strong>Resident Assistant</strong>
+          <span>Draft mode</span>
+        </div>
+        <button class="icon-button" data-close-chat type="button" aria-label="Close assistant">×</button>
+      </div>
+      <div class="chat-log" id="chat-log" aria-live="polite">
+        <p class="bot">Hi! Ask me where to find your tenancy agreement, how to sign it, how to pay your bond, or how to set up rent payments.</p>
+      </div>
+      <form class="chat-form" id="chat-form">
+        <label class="sr-only" for="chat-input">Ask the resident assistant</label>
+        <input id="chat-input" type="text" placeholder="Ask about your agreement, bond, or rent setup..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </aside>
+    <div class="scrim" data-close-chat></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
